@@ -12,12 +12,12 @@
 			<u-notice-bar :text="bannerText" color="black" direction="column" bgColor="#f8f8f8" fontSize="30">111</u-notice-bar>
 		</view>
 		<view class="events-title"><p>热门活动上线中</p></view>
-		<view class="events-list" v-for="(item, index) in ongoing.events" :key="index">
+		<view class="events-list" v-for="item in ongoing.events" :key="item.id">
 			<EventsViewItem :type="ongoing" :url="item.url" :title="item.name" tagText="征集中" tagColor="#fc0" fontColor="black" guideText="立即参与" :imageUrl="item.image"></EventsViewItem>
 		</view>
 		<view style="height: 40rpx;"></view>
 		<view class="events-title"><p>往期回顾</p></view>
-		<view class="events-list" v-for="(item, index) in ended.events" :key="index">
+		<view class="events-list" v-for="item in ended.events" :key="item.id">
 			<EventsViewItem :type="ongoing" :url="item.url" :title="item.name" tagText="已结束" tagColor="#c0c0c0" fontColor="#fff" guideText="查看详细" :imageUrl="item.image"></EventsViewItem>
 		</view>
 	</view>
