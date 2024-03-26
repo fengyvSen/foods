@@ -5,7 +5,10 @@
 		</u-navbar>
 		<view class="category-menu">
 			<view class="menu-left">
-				<veiw class="menu-left-item"></veiw>
+				<view class="menu-left-item" v-for="(item, index) in categoryList" :key="index"
+					:class="{ 'active': index == currentIndex }" @click="currentIndex = index">
+					{{ item.name }}
+				</view>
 			</view>
 			<view class="menu-right">
 				<view class="menu-right-item"></view>
@@ -54,4 +57,44 @@ export default {
 }
 </script>
 
-<style></style>
+<style lang="scss">
+.category-menu {
+	position: fixed;
+	display: flex;
+
+	.menu-left {
+		flex: 0 0 80px;
+		background-color: $uni-bg-color-grey;
+		height: 100vh;
+	}
+
+	.menu-left-item {
+		position: relative;
+		padding: 10px 0;
+		line-height: 20px;
+		text-align: center;
+		font-size: 14px;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+
+		&.active {
+			position: relative;
+			background-color: $uni-bg-color;
+
+			&::after {
+				display: block;
+				position: absolute;
+				right: 0;
+				top: 12px;
+				content: '';
+				height: 24px;
+				width: 2px;
+				background-color: $uni-color-base;
+				
+			}
+		}
+
+	}
+}
+</style>
