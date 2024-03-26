@@ -8,7 +8,7 @@
 				<u-search placeholder="菜谱" v-model="inputwords"></u-search>
 			</view>
 			<view class="nav-right" slot="right">
-				<view class="more nav-btn"></view>
+				<view class="more nav-btn" @click="goToCategory"></view>
 				<view class="notify nav-btn">
 					 <u-badge type="error" max="99" :value="2"></u-badge>
 				</view>
@@ -72,8 +72,14 @@
 		// 存方法的地方
 		methods: {
 			goToSearch() {
+				// url: '/pages/search/search'
 				uni.navigateTo({
-					url: '/pages/search/search'
+					url: '/pages/SearchDetail/SearchDetail'
+				})
+			},
+			goToCategory(){
+				uni.navigateTo({
+					url: '/pages/category/category'
 				})
 			},
 			selectTabs(selectedIndex){

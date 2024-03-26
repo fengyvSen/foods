@@ -55,7 +55,7 @@
 			}
 		},
 		{
-			"path" : "pages/SearchDetail/SearchDetail/SearchDetail",
+			"path" : "pages/SearchDetail/SearchDetail",
 			"style" : 
 			{
 				"navigationBarTitleText" : "",
@@ -63,7 +63,7 @@
 			}
 		},
 		{
-			"path" : "pages/SearchDetail/SearchDetail",
+			"path" : "pages/category/category",
 			"style" : 
 			{
 				"navigationBarTitleText" : "",
