@@ -1,6 +1,6 @@
 <template>
 	<view>
-		<u-navbar title="菜谱分类" @rightClick="rightClick" :autoBack="true" leftIconSize="32" :placeholder="true">
+		<u-navbar title="菜谱分类" @leftClick="goToIndex" :autoBack="true" leftIconSize="32" :placeholder="true">
 			<u-icon name="search" slot="right" size="38" @click="goToSearch"></u-icon>
 		</u-navbar>
 		<view class="category-menu">
@@ -42,6 +42,11 @@ export default {
 		goToSearch() {
 			uni.navigateTo({
 				url: '/pages/search/search'
+			})
+		},
+		goToIndex(){
+			uni.switchTab({
+				url: '/pages/index/index'
 			})
 		}
 	},
