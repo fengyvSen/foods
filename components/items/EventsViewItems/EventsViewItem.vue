@@ -3,28 +3,21 @@
     <view class="eitem-image">
       <image :src="imageUrl" mode="aspectFill"></image>
     </view>
-    <view class="eitem-title"><span class="eitem-tag" :style="{background:tagColor, color:fontColor}">{{ tagText }}</span><span class="eitem-title-item">{{ title }}</span></view>
-    <view class="eitem-guide"><u-icon name="arrow-right" :label="guideText" labelPos="left" labelSize="20" labelColor="#33c0bbc8" size="18" color="#33c0bbc8" :bold="true"></u-icon></view>
-</view>
+    <view class="eitem-title"><span class="eitem-tag" :style="{ background: tagColor, color: fontColor }">{{ tagText
+        }}</span><span class="eitem-title-item">{{ title }}</span></view>
+    <view class="eitem-guide"><u-icon name="arrow-right" :label="guideText" labelPos="left" labelSize="20"
+        labelColor="#33c0bbc8" size="18" color="#33c0bbc8" :bold="true"></u-icon></view>
+  </view>
 </template>
 
 <script>
 import Vue from 'vue';
 
-import {gotoUrl} from '../../../utils/utils.js';
+import { gotoUrl } from '../../../utils/utils.js';
 
 export default Vue.extend({
   name: "EventsViewItem",
-  props: {
-    type: String,
-    url: String,
-    title: String,
-    tagText: String,
-    tagColor: String,
-    fontColor:String,
-    guideText: String,
-    imageUrl: String,
-  },
+  props: ['type', 'url', 'title', 'tagText', 'tagColor', 'fontColor', 'guideText', 'imageUrl'],
   data() {
     return {}
   },
@@ -52,28 +45,31 @@ export default Vue.extend({
 </script>
 
 <style lang="scss">
-.eitem{
+.eitem {
   display: grid;
   width: 100%;
   height: 520rpx;
   margin-bottom: $uni-spacing-col-lg*2;
-  grid-template-rows:3fr auto;
-  grid-template-columns:4fr 1fr;
+  grid-template-rows: 3fr auto;
+  grid-template-columns: 4fr 1fr;
 }
-.eitem-image{
+
+.eitem-image {
   margin: $uni-spacing-row-sm 0;
   grid-column: 1 / 3;
-  image{
+
+  image {
     width: 100%;
     height: 100%;
     border-radius: $uni-border-radius-base;
   }
 }
-.eitem-title{
+
+.eitem-title {
   line-height: $uni-font-size-base*2;
   font-size: $uni-font-size-base;
 
-  .eitem-tag{
+  .eitem-tag {
     margin-right: $uni-border-radius-base;
     padding: $uni-border-radius-base;
     background-color: $uni-color-base;
@@ -82,7 +78,8 @@ export default Vue.extend({
     font-size: $uni-font-size-sm;
   }
 }
-.eitem-guide{
+
+.eitem-guide {
   justify-self: end;
   align-self: center;
   font-size: $uni-font-size-sm;
