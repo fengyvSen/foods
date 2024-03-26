@@ -1,5 +1,6 @@
 <template>
 	<view>
+		<u-toast ref="uToast"></u-toast>
 		<u-navbar title="菜谱分类" @leftClick="goToIndex" :autoBack="true" leftIconSize="32" :placeholder="true">
 			<u-icon name="search" slot="right" size="38" @click="goToSearch"></u-icon>
 		</u-navbar>
@@ -11,7 +12,19 @@
 				</view>
 			</view>
 			<view class="menu-right">
-				<view class="menu-right-item"></view>
+				<div class="banner" v-if="isBanner">
+					<u-icon class="banner-close" name="close-circle-fill" color="rgba(0, 0, 0, 0.4)" size="28" @click="closeBanner"></u-icon>
+					<u--image :showLoading="true" :src="bannerSrc" width="80vw" hight="100%" @click="goToBanner"
+						mode="widthFix"></u--image>
+				</div>
+				<view class="menu-right-item">
+					<view class="tagsname">
+
+					</view>
+					<view class="tagsbox">
+						<view class="tag"></view>
+					</view>
+				</view>
 			</view>
 		</view>
 
@@ -24,7 +37,9 @@ export default {
 	data() {
 		return {
 			currentIndex: 0,
+			isBanner: true,
 			categoryList: [],
+			bannerSrc: '/static/banner.png',
 		}
 	},
 	methods: {
@@ -44,10 +59,33 @@ export default {
 				url: '/pages/search/search'
 			})
 		},
-		goToIndex(){
+		goToIndex() {
 			uni.switchTab({
 				url: '/pages/index/index'
 			})
+		},
+		showToast(params) {
+			this.$refs.uToast.show({
+				...params,
+				complete() {
+					params.url && uni.navigateTo({
+						url: params.url
+					})
+				}
+			})
+		},
+		goToBanner() {
+			this.showToast(
+				{
+						type: 'default',
+						title: '',
+						message: "这是一条广告",
+						iconUrl: 'https://cdn.uviewui.com/uview/demo/toast/default.png'
+					},
+			)
+		},
+		closeBanner(){
+			this.isBanner = false
 		}
 	},
 	compute: {
@@ -66,9 +104,10 @@ export default {
 .category-menu {
 	position: fixed;
 	display: flex;
+	margin-top: $uni-spacing-col-base;
 
 	.menu-left {
-		flex: 0 0 80px;
+		flex: 0 0 20vw;
 		background-color: $uni-bg-color-grey;
 		height: 100vh;
 	}
@@ -90,16 +129,35 @@ export default {
 			&::after {
 				display: block;
 				position: absolute;
-				right: 0;
-				top: 12px;
+				top: 50%;
+				transform: translatey(-50%);
+				right: 3px;
+				height: 20px;
+				width: 3px;
 				content: '';
-				height: 24px;
-				width: 2px;
+				border-radius: 999px;
 				background-color: $uni-color-base;
-				
+
 			}
 		}
 
+	}
+
+	.menu-right {
+		.menu-right-item {
+			margin: 0 $uni-spacing-row-lg;
+		}
+	}
+
+	.banner {
+		position: relative;
+
+		.banner-close {
+			z-index: 1;
+			position: absolute;
+			top: 5px;
+			right: 5px;
+		}
 	}
 }
 </style>
