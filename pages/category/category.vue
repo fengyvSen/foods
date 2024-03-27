@@ -17,13 +17,13 @@
 						@click="closeBanner"></u-icon>
 					<image :showLoading="true" :src="bannerSrc" @click="goToBanner" mode="widthFix"></image>
 				</view>
-				<view class="menu-right-item" v-for="item in categoryList[currentIndex].cs" v-key="item.id">
+				<view class="menu-right-item" v-for="item in subMenuList" :key="item.id">
 					<view class="tagsname">
 						<image class="tagsname-image" :showLoading="true" :src="item.image_url" @click="goToBanner"
 							mode="widthFix"></image>
 					</view>
 					<view class="tagsbox">
-						<view class=" tagsbox-tag" v-for="(tagitem, index) in item.cs" v-key="tagitem.id"
+						<view class=" tagsbox-tag" v-for="tagitem in item.cs" :key="tagitem.id"
 							@click="goSearchDetail(tagitem.name)">
 							{{ tagitem.name }}
 						</view>
@@ -121,7 +121,7 @@ export default {
 			})
 		}
 	},
-	compute: {
+	computed: {
 		subMenuList() {
 			let subArr = this.categoryList[this.currentIndex]
 			return subArr ? subArr.cs : []
