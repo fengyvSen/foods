@@ -35,7 +35,6 @@ export default {
 	grid-template-columns: 32px auto;
 	grid-auto-columns: auto auto;
 	align-items: center;
-	padding: $uni-spacing-col-lg $uni-spacing-row-lg*2;
 
 
 	.UP-avatar {
