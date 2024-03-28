@@ -1,10 +1,11 @@
 <template>
 	<view>
-		<LoadingBar @scrolltolower="scrolltolowerHandle">
+		<LoadingBar @scrollTolower="scrolltolowerHandle">
 			<scroll-view class="topics-row">{{ topics }}</scroll-view>
 			<view class="notes-list">{{ list }}</view>
 			<u-gap height="80"></u-gap>
 		</LoadingBar>
+		{{ loading }}
 	</view>
 </template>
 
@@ -37,7 +38,7 @@ export default {
 			this.loading = true
 
 			let timeStamp = new Date().getTime()
-			http(NotesViewUrl + "?timeStamp=" + timeStamp).then(data => {
+			http(NotesViewUrl(this.list.length) + "?timeStamp=" + timeStamp).then(data => {
 				this.updateNotesView({ ...data.result })
 				this.$nextTick(() => {
 					this.loading = false
@@ -46,6 +47,7 @@ export default {
 		},
 		// 上拉到底部实现加载更多功能
 		scrolltolowerHandle() {
+			console.log(111);
 			if (!this.loading) {
 				console.log('note滑动到底部了');
 				this.fetchData()

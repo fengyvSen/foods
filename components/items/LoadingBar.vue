@@ -1,5 +1,5 @@
 <template>
-	<scroll-view class="note-view" :scroll-y="true" :lower-threshold="0" @scrolltolower="$emit('scrolltolower')">
+	<scroll-view class="note-view" :scroll-y="true" :lower-threshold="0" @scrolltolower="$emit('scrollTolower')">
 		<slot></slot>
 		<u-gap height="80"></u-gap>
 		<view class="loading-text">
