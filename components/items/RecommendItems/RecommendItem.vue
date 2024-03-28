@@ -35,7 +35,7 @@
 		}
 	}
 </script>
-<style>
+<style lang="scss">
 .recommended-item {
 	padding: 4px 0 8px;
 }

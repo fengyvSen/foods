@@ -123,8 +123,8 @@ export default {
 	font-size: 12px;
 	line-height: 28px;
 	white-space: nowrap;
-	background-color: #299faa33;
-	color: #299faa;
+	background-color: $uni-link-color-bg;
+	color: $uni-link-color;
 }
 
 .notes-list {
