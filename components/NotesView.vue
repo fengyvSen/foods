@@ -55,7 +55,6 @@ import { http } from '../apis/http';
 import { gotoUrl } from '../utils/utils';
 import LoadingBar from './items/LoadingBar'
 
-
 import { mapState, mapGetters, mapMutations } from 'vuex';
 
 
@@ -77,8 +76,7 @@ export default {
 		fetchData() {
 			this.loading = true
 
-			let timeStamp = new Date().getTime()
-			http(NotesViewUrl(this.list.length) + "?timeStamp=" + timeStamp).then(data => {
+			http(NotesViewUrl(this.list.length)).then(data => {
 				this.updateNotesView({ ...data.result })
 				this.$nextTick(() => {
 					this.loading = false

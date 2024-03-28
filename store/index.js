@@ -6,6 +6,7 @@ import RecommendedView from './modules/RecommendedView.js'
 import EventsView from './modules/EventsView.js'
 import FollowFeedsView from './modules/FollowFeedsView.js'
 import NotesView from './modules/NotesView.js'
+import VideosView from './modules/VideosView.js'
 
 
 
@@ -21,7 +22,8 @@ const store = new Vuex.Store({
 		RecommendedView,
 		EventsView,
 		FollowFeedsView,
-		NotesView
+		NotesView,
+		VideosView
 	}
 })
 export default store
