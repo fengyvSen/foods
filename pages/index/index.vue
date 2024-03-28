@@ -19,7 +19,9 @@
 				{{item.title}}
 			</view>
 		</view>
-		<component :is="tabs[isselected].component"></component>
+		<keep-alive>
+			<component ref="childComp" @changeRefresh="changeRefreshHandle" :refresh="refresh" :is="tabs[isselected].component"></component>
+		</keep-alive>
 	</view>
 </template>
 

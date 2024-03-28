@@ -6,7 +6,7 @@ export default {
 	getters: {},
 	mutations: {
 		updateVideosView(state, payload) {
-            state.list = [...payload.list];
+            state.list = [...state.list,...payload.list];
 		},
 	},
 	actions: {},
