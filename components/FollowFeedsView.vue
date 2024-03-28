@@ -3,8 +3,12 @@
 		<view class="followitem" v-for="(item, index) in followFeedsList" :key="item.id">
 			<view class="upinfo">
 				<UPInfo :UPSrc="item.u.p" :name="item.u.n" :lvl="item.u.lvl" :text="upinfoText[index]"></UPInfo>
+				<view class="button"> <u-button text="关注" style="width: 52rpx;" color="#fc0" size="mini"
+						throttleTime="1"></u-button>
+				</view>
 			</view>
-			<view class="itemcontent"></view>
+			<view class="itemcontent" v-if="item.type === 1">
+			</view>
 		</view>
 	</view>
 </template>
@@ -51,4 +55,12 @@ export default {
 }
 </script>
 
-<style></style>
+<style lang="scss">
+.upinfo {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	padding: $uni-spacing-col-lg $uni-spacing-row-lg*2;
+}
+</style>

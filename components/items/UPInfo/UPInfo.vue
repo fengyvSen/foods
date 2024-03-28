@@ -32,7 +32,6 @@ export default {
 <style lang="scss">
 .item-UP {
 	display: grid;
-	gap: 0 $uni-spacing-row-lg;
 	grid-template-columns: 32px auto;
 	grid-auto-columns: auto auto;
 	align-items: center;
