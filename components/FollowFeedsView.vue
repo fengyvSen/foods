@@ -7,7 +7,8 @@
 						throttleTime="1"></u-button>
 				</view>
 			</view>
-			<view class="itemcontent" v-if="item.type === 1">
+			<view class="itemshow" v-if="item.type === 1">
+				<image :src="item.img" style="width: 100%;" mode="widthFix" :alt="item.t+'图片'" />
 			</view>
 		</view>
 	</view>
@@ -35,6 +36,14 @@ export default {
 				return item.u.followers_count_text + " · " + item.u.recipes_count_text;
 			});
 		},
+		// itemshowAlt(type,data){
+		// 	switch(type){
+		// 		case 1:
+		// 			return data+"图片";
+		// 		default:
+		// 			return "";
+		// 	}
+		// }
 	},
 	methods: {
 		...mapMutations(['updateFollowFeedsView']),
