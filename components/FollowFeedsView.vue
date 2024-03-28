@@ -1,7 +1,8 @@
 <template>
 	<view>
-		<view class="followitem">
+		<view class="followitem" v-for="(item, index) in followFeedsList" :key="item.id">
 			<view class="upinfo">
+				<UPInfo :UPSrc="item.u.p" :name="item.u.n" :lvl="item.u.lvl" :text="upinfoText[index]"></UPInfo>
 			</view>
 			<view class="itemcontent"></view>
 		</view>
@@ -9,7 +10,7 @@
 </template>
 
 <script>
-import UPInfo from "./UPInfo/UPInfo.vue";
+import UPInfo from "./items/UPInfo/UPInfo.vue";
 import { FollowFeedsViewUrl } from '../apis/moudles/index';
 import { http } from '../apis/http';
 import { mapState, mapGetters, mapMutations } from 'vuex';
@@ -24,7 +25,12 @@ export default {
 	computed: {
 		...mapState({
 			followFeedsList: state => state.FollowFeedsView.followFeedsList
-		})
+		}),
+		upinfoText() {
+			return this.followFeedsList.map(item => {
+				return item.u.followers_count_text + " · " + item.u.recipes_count_text;
+			});
+		},
 	},
 	methods: {
 		...mapMutations(['updateFollowFeedsView']),
