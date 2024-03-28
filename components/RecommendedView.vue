@@ -56,7 +56,6 @@ import { http } from '../apis/http';
 import { gotoUrl } from '../utils/utils';
 import {RecommendedViewUrl} from '../apis/moudles/index';
 import RecommendItem from './items/RecommendItems/RecommendItem.vue'
-import store from '../store';
 
 import {mapState,mapGetters,mapMutations} from 'vuex';
 
@@ -80,7 +79,9 @@ import {mapState,mapGetters,mapMutations} from 'vuex';
 				gotoUrl(this.banner[index].url)
 			},
 			fetchData(){
-				http(RecommendedViewUrl).then(data=>{
+				let timeStamp = new Date().getTime()
+
+				http(RecommendedViewUrl+"?timeStamp="+timeStamp).then(data=>{
 					this.updateData({...data.result})
 				})
 			}

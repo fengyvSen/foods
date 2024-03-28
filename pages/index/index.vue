@@ -36,7 +36,7 @@
 	export default {
 		data() {
 			return {
-				isselected:4,
+				isselected:0,
 				inputwords:"",
 				tabs: [{
 						title: '关注',

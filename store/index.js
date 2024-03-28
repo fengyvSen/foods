@@ -4,6 +4,7 @@ import Vuex from 'vuex'
 
 import RecommendedView from './modules/RecommendedView.js'
 import EventsView from './modules/EventsView.js'
+import FollowFeedsView from './modules/FollowFeedsView.js'
 
 
 Vue.use(Vuex);//vue的插件机制
@@ -18,7 +19,8 @@ const store = new Vuex.Store({
 	},
 	modules:{
 		RecommendedView,
-		EventsView
+		EventsView,
+		FollowFeedsView
 	}
 })
 export default store
