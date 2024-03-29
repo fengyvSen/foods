@@ -6,9 +6,7 @@ export default {
 	getters: {},
 	mutations: {
 		updateFollowFeedsView(state, payload) {
-			console.log(payload);
-            state.followFeedsList = [...payload];
-			console.log(state);
+            state.followFeedsList = [...state.followFeedsList,...payload];
 		},
 	},
 	actions: {},
